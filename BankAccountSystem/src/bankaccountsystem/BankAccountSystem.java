@@ -5,7 +5,7 @@ public class BankAccountSystem {
 
     public static void main(String[] args) {
 
-        Account accountA = new Account();
+        SavingsAccount accountA = new SavingsAccount();
         accountA.deposit(100);
         System.out.println(accountA.getBalance());
         accountA.gainInterest();
