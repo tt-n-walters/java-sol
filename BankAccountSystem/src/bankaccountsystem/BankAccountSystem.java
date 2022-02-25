@@ -10,6 +10,8 @@ public class BankAccountSystem {
         System.out.println(accountA.getBalance());
         accountA.gainInterest();
         System.out.println(accountA.getBalance());
+        accountA.withdraw(50);
+        System.out.println(accountA.getBalance());
     }
     
 }

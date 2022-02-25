@@ -24,8 +24,11 @@ public class Account {
 
     public double withdraw(double amount) {
         if (balance >= amount) {
+            System.out.println("Withdrawing " + amount);
             balance -= amount;
             return amount;
+        } else {
+            return 0;
         }
     }
 
