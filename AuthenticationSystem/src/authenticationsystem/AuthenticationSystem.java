@@ -9,9 +9,7 @@ import java.io.FileNotFoundException;
 public class AuthenticationSystem {
 
     public static void main(String[] args) {
-        String[] username;
-        String[] password;
-        String[] years;
+        User user = null;
 
         File dataFile = new File("src/authenticationsystem/data.txt");
         try {
@@ -19,26 +17,24 @@ public class AuthenticationSystem {
             String data = dataInput.nextLine();
             String[] dataPieces = data.split(":::");
             System.out.println("Successfully read data file.");
-            username = dataPieces[0];
-            password = dataPieces[1];
+            user = new User(dataPieces[0], dataPieces[1], Integer.parseInt(dataPieces[2]));
 
         } catch(FileNotFoundException e) {
             System.out.println("Data file doesn't exist.");
-            username = "";
-            password = "";
         }
 
+        if (user != null) {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Enter username:");
+            String inputUsername = input.nextLine();
+            System.out.println("Enter password:");
+            String inputPassword = input.nextLine();
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter username:");
-        String inputUsername = input.nextLine();
-        System.out.println("Enter password:");
-        String inputPassword = input.nextLine();
-        
-        if (username.equals(inputUsername) && password.equals(inputPassword)) {
-            System.out.println("Successfully logged in.");
-        } else {
-            System.out.println("Incorrect username or password.");
+            if (user.getName().equals(inputUsername) && user.getPassword().equals(inputPassword)) {
+                System.out.println("Successfully logged in.");
+            } else {
+                System.out.println("Incorrect username or password.");
+            }
         }
     }
 }
