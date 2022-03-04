@@ -1,2 +1,3 @@
 nw:::abc:::1994
 bob:::builder:::1980
+alice:::password:::2000
