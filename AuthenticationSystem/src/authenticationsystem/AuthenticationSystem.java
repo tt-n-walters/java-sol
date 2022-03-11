@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 public class AuthenticationSystem {
 
     public static void main(String[] args) {
-        ArrayList<User> users = new ArrayList<User>();
+        ArrayList<User> users = new ArrayList<>();
 
         File dataFile = new File("src/authenticationsystem/data.txt");
         try {
@@ -36,13 +36,18 @@ public class AuthenticationSystem {
         System.out.println("Enter password:");
         String inputPassword = input.nextLine();
 
+        boolean foundMatch = false;
         for (int i = 0; i < users.size(); i++) {
             User user = users.get(i);
             if (user.getName().equals(inputUsername) && user.getPassword().equals(inputPassword)) {
-                System.out.println("Successfully logged in.");
-            } else {
-                System.out.println("Incorrect username or password.");
+                foundMatch = true;
+                break;
             }
+        }
+        if (foundMatch == true) {
+            System.out.println("Successfully logged in.");
+        } else {
+            System.out.println("Incorrect username or password.");
         }
     }
 }
